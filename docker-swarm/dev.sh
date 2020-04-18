@@ -11,20 +11,20 @@ docker service create \
   --restart-delay 10s \
   --restart-max-attempts 10 \
   --restart-window 60s \
-  --constraint node.labels.primary==true \
-  --env 'constraint:serverclass==gateway' \
-  --env 'KEYCLOAK_USER_FILE=/run/secrets/keycloak_user' \
-  --env 'KEYCLOAK_PASSWORD_FILE=/run/secrets/keycloak_password' \
-  --env 'DB_VENDOR=mariadb' \
-  --env 'DB_ADDR=galera_node' \
-  --env 'DB_PORT=3306' \
-  --env 'DB_DATABASE=keycloak' \
-  --env 'DB_USER_FILE=/run/secrets/keycloak_db_user' \
-  --env 'DB_PASSWORD_FILE=/run/secrets/keycloak_db_password' \
-  --env 'PROXY_ADDRESS_FORWARDING=true' \
-  --env 'KEYCLOAK_HOSTNAME=openid.dev.bremersee.org' \
-  --env 'KEYCLOAK_HTTP_PORT=80' \
-  --env 'KEYCLOAK_HTTPS_PORT=443' \
-  --env 'KEYCLOAK_LOGLEVEL=INFO' \
-  --env 'ROOT_LOGLEVEL=INFO' \
+  --constraint node.labels.keycloak==true \
+  -e 'constraint:serverclass==gateway' \
+  -e KEYCLOAK_USER_FILE='/run/secrets/keycloak_user' \
+  -e KEYCLOAK_PASSWORD_FILE='/run/secrets/keycloak_password' \
+  -e DB_VENDOR='mariadb' \
+  -e DB_ADDR='galera-node' \
+  -e DB_PORT='3306' \
+  -e DB_DATABASE='keycloak' \
+  -e DB_USER_FILE='/run/secrets/keycloak_db_user' \
+  -e DB_PASSWORD_FILE='/run/secrets/keycloak_db_password' \
+  -e PROXY_ADDRESS_FORWARDING='true' \
+  -e KEYCLOAK_HOSTNAME='openid.dev.bremersee.org' \
+  -e KEYCLOAK_HTTP_PORT='80' \
+  -e KEYCLOAK_HTTPS_PORT='443' \
+  -e KEYCLOAK_LOGLEVEL='INFO' \
+  -e ROOT_LOGLEVEL='INFO' \
   bremersee/openid:snapshot
