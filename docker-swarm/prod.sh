@@ -32,6 +32,6 @@ docker service create \
   --env 'KEYCLOAK_LOGLEVEL=INFO' \
   --env 'ROOT_LOGLEVEL=INFO' \
   --env 'JGROUPS_DISCOVERY_PROTOCOL=JDBC_PING' \
-  --env 'JGROUPS_DISCOVERY_PROPERTIES: datasource_jndi_name=java:jboss/datasources/KeycloakDS' \
+  --env 'JGROUPS_DISCOVERY_PROPERTIES=datasource_jndi_name=java:jboss/datasources/KeycloakDS' \
   --env 'CACHE_OWNERS_COUNT=2' \
   bremersee/openid:latest
