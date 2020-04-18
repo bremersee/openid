@@ -1,2 +1,0 @@
-# openid
-Keycloak OpenID Server
